@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cashfarm</title>
+<link rel="icon" href="assets/icon.png">
+
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #040a01;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1em;
+    color: #bbbbbb;
+    margin: 0.15em 1 0.5em 1;
+  }
+
+  p {
+    font-size: 1.4em;
+    color: #999999;
+  }
+
+  .button {
+    padding: 0.5em 1em; 
+    margin: 0.4em;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.15em; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 9em; 
+    color: white;
+    background-color: #13dd53; 
+   }
+
+
+  .button#script {
+    background-color: #13dd53;
+  }
+
+  .button#version {
+    background-color: #e41414;
+  }
+
+  .button#discord {
+    background-color: #1340e4;
+  }
+
+  .button:hover {
+    opacity: 0.9;
+  }
+
+  .button#script:hover {
+    background-color: #00ff48;
+  }
+
+  .button#version:hover {
+    background-color: #ff2a00;
+  }
+
+  .button#discord:hover {
+    background-color: #0037ff;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .stat {
+    margin: 0 2em;
+    text-align: center;
+  }
+
+  .stat h3 {
+    font-size: 2em;
+    margin-bottom: 0.1em;
+  }
+
+  .stat p {
+    font-size: 1em;
+    margin: 1;
+    color: #cccccc;
+  }
+
+  .buttons {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Actively used by thousands of users</h1>
+  <h2>We have a strong community of users actively using our services.</h2>
+  <div class="stats">
+    <div class="stat">
+      <h3 id="global-cash">0</h3>
+      <p>Global Cash Made</p>
+    </div>
+    <div class="stat">
+      <h3 id="monthly-executions">0</h3>
+      <p>Monthly Executions</p>
+    </div>
+    <div class="stat">
+      <h3 id="premium-users">0</h3>
+      <p>Premium Users</p>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="button" id="script"onclick="openScript()" >Get Script</button>
+    <button class="button" id="version" onclick="openVersion()">Version</button>
+    <button class="button" id="discord" onclick="openDiscord()" >Join Discord</button>
+  </div>
+</div>
+
+<script>
+    function animateValue(id, start, end) {
+    var range = end - start;
+    var current = start;
+    var increment = Math.ceil(range / 1750); 
+    var duration = Math.abs(Math.floor((5000 / end) * end)); 
+    var stepTime = Math.abs(Math.floor(duration / (range / increment))); 
+    var obj = document.getElementById(id);
+    
+    var timer = setInterval(function() {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      obj.textContent = formatNumber(current);
+    }, stepTime);
+  }
+  
+    function formatNumber(number) {
+        if (number < 1000) return number; 
+    if (number < 1000000) return (number / 1000).toFixed(0) + 'K'; 
+    if (number < 1000000000) return (number / 1000000).toFixed(0) + 'M'; 
+    if (number < 1000000000000) return (number / 1000000000).toFixed(0) + 'B'; 
+    if (number < 1000000000000000) return (number / 1000000000000).toFixed(0) + 'T';
+
+    
+    var suffixes = ["", "K", "M", "B", "T", "Q"];
+    var suffixNum = Math.floor(("" + number).length / 3);
+    var shortValue = parseFloat((suffixNum < 3 ? number / Math.pow(1000, suffixNum) : (number / Math.pow(1000, suffixNum)).toFixed(1)));
+    return shortValue + suffixes[suffixNum];
+  }
+    
+  function openScript() {
+     window.location.href = 'AutoCrateFree.lua'
+  }
+
+  function openVersion() {
+    window.location.href = 'Version.txt'
+  }
+
+  function openDiscord() {
+    window.open("https://discord.gg/getcash", '_blank');
+  }
+
+  animateValue("monthly-executions", 0, 82746);
+  animateValue("premium-users", 0, 94);
+  animateValue("global-cash", 0, 9e9)
+  </script>  
+</body>
+</html>
