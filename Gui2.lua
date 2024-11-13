@@ -1261,6 +1261,10 @@ function library:AddWindow(title, options)
 							pcall(callback,toggled)
 						end
 
+						function switch_data:SetColor(color)
+							switch:FindFirstChild("Title").TextColor3 = color
+						end
+
 						return switch_data, switch
 					end
 
