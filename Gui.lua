@@ -1,3 +1,16 @@
+-- No Rights Reserved License (NRRL)
+
+-- This work is provided as-is, with no permission granted to use, copy, modify, distribute, or perform any other action with this work in any form, digital or otherwise.
+
+-- You MAY NOT:
+-- - Use this work for any purpose.
+-- - Modify this work in any way.
+-- - Distribute or share this work, whether for free or for profit.
+-- - Incorporate this work into any derivative works.
+-- - Claim ownership or authorship of this work.
+
+-- This license is intended to restrict all rights to this work unless explicit written permission is provided by the author.
+
 local Gui
 Gui = {
 	Data = {
