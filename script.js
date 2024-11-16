@@ -27,35 +27,3 @@ const menuImage = document.getElementById('menuImage');
             menuImage.style.opacity = 1;
         }, 1000); 
     }, 6000);
-
-    const originalTitle = 'cashfarm.xyz';
-    let currentTitle = originalTitle;
-
-    function animateTitle() {
-
-        const decreaseInterval = setInterval(() => {
-            if (currentTitle.length > 1) {
-                currentTitle = currentTitle.slice(0, -1); 
-                document.title = currentTitle; 
-            } else {
-                clearInterval(decreaseInterval);
-
-                increaseTitle();
-            }
-        }, 500);
-    }
-
-    function increaseTitle() {
-        const increaseInterval = setInterval(() => {
-            if (currentTitle.length < originalTitle.length) {
-                currentTitle += originalTitle[currentTitle.length]; 
-                document.title = currentTitle; 
-            } else {
-                clearInterval(increaseInterval);
-
-                setTimeout(animateTitle, 1000); 
-            }
-        }, 500);
-    }
-
-    animateTitle();
