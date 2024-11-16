@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 const menuImage = document.getElementById('menuImage');
     const images = ['assets/menu.png', 'assets/menu2.png', 'assets/menu3.png', 'assets/menu4.png'];
     let currentIndex = 0;
