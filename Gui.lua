@@ -1,7 +1,5 @@
-local args = {
-    [1] = 1
-}
+local SafePurchaseRemote = game:GetService("ReplicatedStorage"):WaitForChild("SafePurchaseRemote")
 
 while task.wait() do
-    game:GetService("ReplicatedStorage"):WaitForChild("SafePurchaseRemote"):FireServer(unpack(args))
+   SafePurchaseRemote:FireServer(1)
 end
