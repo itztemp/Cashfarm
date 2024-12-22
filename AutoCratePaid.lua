@@ -37,7 +37,6 @@ RunService.Heartbeat:Connect(function()
    end)
 end)
 
-	-- trolled!
 if not UserSettings().GameSettings:InFullScreen() then
     game:GetService("GuiService"):ToggleFullscreen()
 end
