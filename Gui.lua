@@ -2,6 +2,7 @@ local SafePurchaseRemote = game:GetService("ReplicatedStorage"):WaitForChild("Sa
 local RunService = game:GetService("RunService")
 
 local punch = {}
+local brkout = {}
 
 for i, v in getgc() do
 	if typeof(v) == "function" and islclosure(v) and not isourclosure(v) then
@@ -13,6 +14,9 @@ for i, v in getgc() do
             if name == "attemptPunch" then
                 punch = v
             end
+
+	    if name == "AttemptBreakout" then
+		  brkout = v
 		end
 	end
 end
@@ -23,8 +27,10 @@ spawn(function()
     while task.wait() do punch() end
 end)
 
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/4f10afce2fa508525d12d2486bc8048c.lua"))()
-
+spawn(function()
+    while task.wait() do brkout(game:GetService("Players").LocalPlayer) end
+end)
+	
 RunService.Heartbeat:Connect(function()
    pcall(function()
          SafePurchaseRemote:FireServer(1)
